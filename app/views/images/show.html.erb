@@ -12,8 +12,9 @@
 
 <p>
   <b>Image:</b>
-  <%= @image.image_url.to_s %>
+  <img src='<%= @image.image_url.to_s %>'/>
 </p>
+
 
 
 <%= link_to 'Edit', edit_image_path(@image) %> |
