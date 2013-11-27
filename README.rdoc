@@ -1,0 +1,32 @@
+Exercise in using CarrierWave
+
+Steps:
+
+1. add gem 'carrierwave' to your gem file and run bundle install
+
+2. create an image model with the fields :description, :image, :title as attr_accessible 
+
+3. run rake db:migrate
+
+4. generate an image uploader with rails g uploader images_uploader
+
+5. add image uploader to your Image model under your attr_accessibles:
+
+mount_uploader :image, ImagesUploader
+
+6. change the views/images/_form.html.erb file so that the first line reads:
+
+<%= form_for @image, html: { multipart: true } do |f| %>
+
+then edit 'f.text_field :image' to 'f.file_field :image'
+
+7. in the show.html.erb view change @image.image to @image.image_url
+
+Boom! You are uploading and saving images from your own machine.
+
+References: 
+https://github.com/carrierwaveuploader/carrierwave
+http://www.sitepoint.com/processing-images-with-carrierwave/
+
+
+
